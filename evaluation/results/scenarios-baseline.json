@@ -1,0 +1,41 @@
+{
+ "label": "baseline",
+ "results": [
+  {
+   "id": "S1",
+   "name": "Start without MONGODB_URI",
+   "observed": "exit=1 after 286 ms; \"MONGODB_URI is missing. Add it to Backend/.env.\"",
+   "pass": true
+  },
+  {
+   "id": "S2",
+   "name": "Start with unreachable MongoDB",
+   "observed": "exit=1 after 30283 ms",
+   "pass": false
+  },
+  {
+   "id": "S3",
+   "name": "Chat with missing OPENAI_API_KEY",
+   "observed": "HTTP 503: {\"error\":\"OPENAI_API_KEY is missing. Add it to Backend/.env.\"}",
+   "pass": true
+  },
+  {
+   "id": "S4",
+   "name": "Chat with invalid OPENAI_API_KEY",
+   "observed": "HTTP 401: {\"error\":\"Could not generate a reply. Check your API key, network connection, and model settings.\"}",
+   "pass": false
+  },
+  {
+   "id": "S5",
+   "name": "List conversations after MongoDB stops",
+   "observed": "HTTP no response after 20000 ms: The operation was aborted due to timeout",
+   "pass": false
+  },
+  {
+   "id": "S6",
+   "name": "Health check after MongoDB stops",
+   "observed": "HTTP 200: {\"status\":\"ok\",\"database\":\"disconnected\"}",
+   "pass": false
+  }
+ ]
+}

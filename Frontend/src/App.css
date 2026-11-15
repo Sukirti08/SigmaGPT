@@ -1,0 +1,44 @@
+:root {
+    --side: #0d1016;
+    --main: #151a23;
+    --panel: #1d2430;
+    --panel-2: #232b39;
+    --line: #2c3444;
+    --text: #e8ecf2;
+    --muted: #8b94a5;
+    --accent: #2f7cf6;
+}
+
+* {
+    color: var(--text);
+    font-family: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Icons take the colour of their parent (or of their own class) instead of the global text colour. */
+svg, svg * {
+    color: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--main);
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.app {
+    background-color: var(--main);
+    display: flex;
+}

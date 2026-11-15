@@ -1,0 +1,95 @@
+{
+ "label": "SigmaGPT-main",
+ "results": [
+  {
+   "id": "E1",
+   "name": "Sidebar logo loads in production build",
+   "pass": true,
+   "observed": "naturalWidth=3840"
+  },
+  {
+   "id": "E2",
+   "name": "Message sent and reply displayed",
+   "pass": true,
+   "observed": "reply shown"
+  },
+  {
+   "id": "E3",
+   "name": "New conversation appears in sidebar after first reply",
+   "pass": true,
+   "observed": "sidebar items=['Explain recursion']"
+  },
+  {
+   "id": "E4",
+   "name": "Follow-up question sent with history (messages=4)",
+   "pass": true,
+   "observed": "mock reports 4 messages"
+  },
+  {
+   "id": "E5",
+   "name": "New chat starts empty; switching back loads earlier messages",
+   "pass": true,
+   "observed": "cleared=True, earlier messages loaded=True"
+  },
+  {
+   "id": "E6",
+   "name": "Markdown rendered; raw HTML and javascript: links neutralised",
+   "pass": true,
+   "observed": "{\"img\": 0, \"code\": true, \"links\": [\"\", \"https://example.com\"], \"copy\": true, \"heading\": true, \"xss\": null}"
+  },
+  {
+   "id": "E6b",
+   "name": "Code blocks have a copy button",
+   "pass": true,
+   "observed": "copy button=True"
+  },
+  {
+   "id": "E7",
+   "name": "Provider error shown to user and prompt kept for retry",
+   "pass": true,
+   "observed": "alert='Could not generate a reply. Please try again later.\nRetry\nDismiss', input='__ERROR500__'"
+  },
+  {
+   "id": "E8",
+   "name": "Conversation deleted from sidebar",
+   "pass": true,
+   "observed": "items 3 -> 2"
+  },
+  {
+   "id": "E11",
+   "name": "Conversations are grouped by date in the sidebar",
+   "pass": true,
+   "observed": "group labels=['Today']"
+  },
+  {
+   "id": "E12",
+   "name": "Like on a reply is saved and still shown after reloading",
+   "pass": true,
+   "observed": "aria-pressed after reload=true"
+  },
+  {
+   "id": "E13",
+   "name": "Model menu shows the configured model and provider",
+   "pass": true,
+   "observed": "Provider | 127.0.0.1:9100 | Model | openai/gpt-oss-20b | Endpoint | 127.0.0.1:9100 | Status | Online"
+  },
+  {
+   "id": "E9",
+   "name": "Mobile (390 px): input uses most of the width; sidebar hidden until opened",
+   "pass": true,
+   "observed": "input width=370px, sidebar x=-319 w=319"
+  },
+  {
+   "id": "E9b",
+   "name": "Mobile menu button opens the conversation list",
+   "pass": true,
+   "observed": "sidebar x after open=0"
+  },
+  {
+   "id": "E10",
+   "name": "Backend offline: clear error and status",
+   "pass": true,
+   "observed": "alert='Cannot reach the SigmaGPT backend at http://localhost:8080. Check that it is running.\nRetr', status='Backend offline'"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+Test date/time: 2026-11-01 (local Windows host, Asia/Kolkata)
+Windows: Windows 11, build 26300 (platform version 10.0.26300)
+CPU: 11th Gen Intel(R) Core(TM) i5-1155G7 @ 2.50GHz
+RAM: 7.8 GiB
+Node.js: v24.18.1
+npm: 12.0.2
+Python: 3.14.6
+MongoDB Server: 8.0.12
+MongoDB reachable at 127.0.0.1:27017: Yes (ping returned 1)
+Chrome: 156.0.8078.76
+Playwright Python: unavailable at initial check
+Groq API key in Backend/.env: present (value intentionally not recorded)

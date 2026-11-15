@@ -1,0 +1,18 @@
+
+> frontend@0.0.0 lint
+> eslint .
+
+
+> frontend@0.0.0 build
+> vite build
+
+vite v7.0.0 building for production...
+transforming...
+✓ 456 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                       0.73 kB │ gzip:   0.48 kB
+dist/assets/blacklogo-B7Abw70Z.png   40.81 kB
+dist/assets/index-DTyawtpV.css        5.95 kB │ gzip:   2.03 kB
+dist/assets/index-CZ2FEFEs.js       495.92 kB │ gzip: 154.25 kB
+✓ built in 2.65s

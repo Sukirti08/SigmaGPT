@@ -1,0 +1,41 @@
+{
+ "label": "improved",
+ "results": [
+  {
+   "id": "S1",
+   "name": "Start without MONGODB_URI",
+   "observed": "exit=1 after 268 ms; \"[startup] MONGODB_URI is missing. Copy Backend/.env.example to Backend/.env and set it.\"",
+   "pass": true
+  },
+  {
+   "id": "S2",
+   "name": "Start with unreachable MongoDB",
+   "observed": "exit=1 after 5277 ms",
+   "pass": true
+  },
+  {
+   "id": "S3",
+   "name": "Chat with missing OPENAI_API_KEY",
+   "observed": "HTTP 503: {\"error\":\"OPENAI_API_KEY is missing. Add it to Backend/.env and restart the backend.\",\"code\":\"AI_NOT_CONFIGURED\"}",
+   "pass": true
+  },
+  {
+   "id": "S4",
+   "name": "Chat with invalid OPENAI_API_KEY",
+   "observed": "HTTP 502: {\"error\":\"The AI provider rejected the server's API key. Check OPENAI_API_KEY in Backend/.env.\",\"code\":\"AI_AUTH\"}",
+   "pass": true
+  },
+  {
+   "id": "S5",
+   "name": "List conversations after MongoDB stops",
+   "observed": "HTTP 503 after 3 ms: {\"error\":\"The database is unavailable. Please try again shortly.\",\"code\":\"DB_UNAVAILABLE\"}",
+   "pass": true
+  },
+  {
+   "id": "S6",
+   "name": "Health check after MongoDB stops",
+   "observed": "HTTP 503: {\"status\":\"degraded\",\"database\":\"disconnected\",\"ai\":\"configured\",\"model\":\"openai/gpt-oss-20b\",\"uptimeSeconds\":3}",
+   "pass": true
+  }
+ ]
+}

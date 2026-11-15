@@ -1,0 +1,38 @@
+# macOS system files
+.DS_Store
+
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env# Do not publish credentials or local machine settings
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Do not publish installed dependencies or generated builds
+node_modules/
+dist/
+.venv/
+.venv*/
+**/__pycache__/
+*.py[cod]
+
+# Local MongoDB files and logs
+mongo-data/
+**/mongo-data/
+mongo-run-data/
+**/mongo-run-data/
+*.log
+
+# Local evaluation artifacts and scratch scripts
+/evaluation/screenshots/
+/evaluation/screenshots_win/
+/evaluation/real_groq/
+/evaluation/results_win/raw/
+/docs/SigmaGPT_Project_Report_Updated.pdf
+/work-*.mjs
+/Backend/work-*.mjs

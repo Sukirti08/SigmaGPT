@@ -1,0 +1,243 @@
+
+> sigmagpt-backend@1.0.0 test
+> node --test "tests/**/*.test.js"
+
+TAP version 13
+# Subtest: SigmaGPT API
+    # Subtest: GET /health reports the database and AI configuration
+    ok 1 - GET /health reports the database and AI configuration
+      ---
+      duration_ms: 32.867054
+      type: 'test'
+      ...
+    # Subtest: POST /api/chat returns a reply and stores both messages
+    ok 2 - POST /api/chat returns a reply and stores both messages
+      ---
+      duration_ms: 38.506334
+      type: 'test'
+      ...
+    # Subtest: follow-up requests include the earlier conversation and the system prompt
+    ok 3 - follow-up requests include the earlier conversation and the system prompt
+      ---
+      duration_ms: 46.517212
+      type: 'test'
+      ...
+    # Subtest: GET /api/thread lists conversations newest first without messages
+    ok 4 - GET /api/thread lists conversations newest first without messages
+      ---
+      duration_ms: 52.320257
+      type: 'test'
+      ...
+    # Subtest: GET and DELETE /api/thread/:threadId handle existing, unknown and malformed ids
+    ok 5 - GET and DELETE /api/thread/:threadId handle existing, unknown and malformed ids
+      ---
+      duration_ms: 27.795516
+      type: 'test'
+      ...
+    # Subtest: malformed, empty, oversized and invalid requests are rejected with JSON errors
+    ok 6 - malformed, empty, oversized and invalid requests are rejected with JSON errors
+      ---
+      duration_ms: 12.013761
+      type: 'test'
+      ...
+    # Subtest: chat replies return message ids and feedback is stored, cleared and validated
+    ok 7 - chat replies return message ids and feedback is stored, cleared and validated
+      ---
+      duration_ms: 32.346555
+      type: 'test'
+      ...
+    # Subtest: unknown routes return 404 JSON
+    ok 8 - unknown routes return 404 JSON
+      ---
+      duration_ms: 2.845711
+      type: 'test'
+      ...
+    # Subtest: provider errors map to safe statuses and save nothing
+    ok 9 - provider errors map to safe statuses and save nothing
+      ---
+      duration_ms: 20.347112
+      type: 'test'
+      ...
+    # Subtest: a slow provider is cut off with 504 after the configured timeout
+    ok 10 - a slow provider is cut off with 504 after the configured timeout
+      ---
+      duration_ms: 1008.99194
+      type: 'test'
+      ...
+    # Subtest: an invalid API key gives a clear 502, and a missing key gives 503
+    ok 11 - an invalid API key gives a clear 502, and a missing key gives 503
+      ---
+      duration_ms: 14.612725
+      type: 'test'
+      ...
+    # Subtest: the chat endpoint is rate limited per client
+    ok 12 - the chat endpoint is rate limited per client
+      ---
+      duration_ms: 11.538134
+      type: 'test'
+      ...
+    # Subtest: security headers and CORS restrictions are applied
+    ok 13 - security headers and CORS restrictions are applied
+      ---
+      duration_ms: 4.834636
+      type: 'test'
+      ...
+    # Subtest: API returns 503 quickly while the database is disconnected
+    ok 14 - API returns 503 quickly while the database is disconnected
+      ---
+      duration_ms: 9.322646
+      type: 'test'
+      ...
+    1..14
+ok 1 - SigmaGPT API
+  ---
+  duration_ms: 1368.245959
+  type: 'suite'
+  ...
+# Subtest: applies defaults
+ok 2 - applies defaults
+  ---
+  duration_ms: 1.134252
+  type: 'test'
+  ...
+# Subtest: rejects invalid numeric settings with a clear message
+ok 3 - rejects invalid numeric settings with a clear message
+  ---
+  duration_ms: 0.418218
+  type: 'test'
+  ...
+# Subtest: reports a missing MONGODB_URI as a start-up problem
+ok 4 - reports a missing MONGODB_URI as a start-up problem
+  ---
+  duration_ms: 1.07635
+  type: 'test'
+  ...
+# Subtest: warns about a missing or placeholder API key
+ok 5 - warns about a missing or placeholder API key
+  ---
+  duration_ms: 0.450345
+  type: 'test'
+  ...
+# Subtest: parses a comma-separated list of origins
+ok 6 - parses a comma-separated list of origins
+  ---
+  duration_ms: 0.390179
+  type: 'test'
+  ...
+# Subtest: keeps every message when within both limits
+ok 7 - keeps every message when within both limits
+  ---
+  duration_ms: 0.570862
+  type: 'test'
+  ...
+# Subtest: keeps only the most recent messages under the message limit
+ok 8 - keeps only the most recent messages under the message limit
+  ---
+  duration_ms: 0.164591
+  type: 'test'
+  ...
+# Subtest: drops the oldest messages when the character budget is exceeded
+ok 9 - drops the oldest messages when the character budget is exceeded
+  ---
+  duration_ms: 0.142786
+  type: 'test'
+  ...
+# Subtest: always keeps the newest message even if it alone exceeds the budget
+ok 10 - always keeps the newest message even if it alone exceeds the budget
+  ---
+  duration_ms: 0.149753
+  type: 'test'
+  ...
+# Subtest: removes metadata fields such as timestamps
+ok 11 - removes metadata fields such as timestamps
+  ---
+  duration_ms: 0.556999
+  type: 'test'
+  ...
+# Subtest: buildPrompt puts the system prompt first
+ok 12 - buildPrompt puts the system prompt first
+  ---
+  duration_ms: 0.140731
+  type: 'test'
+  ...
+# Subtest: maps a timeout to 504
+ok 13 - maps a timeout to 504
+  ---
+  duration_ms: 0.705454
+  type: 'test'
+  ...
+# Subtest: maps a connection failure to 502
+ok 14 - maps a connection failure to 502
+  ---
+  duration_ms: 0.106019
+  type: 'test'
+  ...
+# Subtest: does not pass a provider 401 through to the client
+ok 15 - does not pass a provider 401 through to the client
+  ---
+  duration_ms: 0.133566
+  type: 'test'
+  ...
+# Subtest: maps provider 429 to 429 with Retry-After and other statuses to 502
+ok 16 - maps provider 429 to 429 with Retry-After and other statuses to 502
+  ---
+  duration_ms: 0.125041
+  type: 'test'
+  ...
+# Subtest: leaves application errors unchanged
+ok 17 - leaves application errors unchanged
+  ---
+  duration_ms: 0.140058
+  type: 'test'
+  ...
+# Subtest: allows up to max requests per window, then returns 429 with Retry-After
+ok 18 - allows up to max requests per window, then returns 429 with Retry-After
+  ---
+  duration_ms: 0.722654
+  type: 'test'
+  ...
+# Subtest: counts clients separately and resets after the window
+ok 19 - counts clients separately and resets after the window
+  ---
+  duration_ms: 0.158701
+  type: 'test'
+  ...
+# Subtest: accepts UUID-style thread ids
+ok 20 - accepts UUID-style thread ids
+  ---
+  duration_ms: 0.639069
+  type: 'test'
+  ...
+# Subtest: rejects thread ids with spaces, symbols, or excessive length
+ok 21 - rejects thread ids with spaces, symbols, or excessive length
+  ---
+  duration_ms: 0.145265
+  type: 'test'
+  ...
+# Subtest: requires both fields and trims whitespace
+ok 22 - requires both fields and trims whitespace
+  ---
+  duration_ms: 0.491369
+  type: 'test'
+  ...
+# Subtest: rejects non-string fields
+ok 23 - rejects non-string fields
+  ---
+  duration_ms: 0.08117
+  type: 'test'
+  ...
+# Subtest: enforces the message length boundary (8000 accepted, 8001 rejected with 413)
+ok 24 - enforces the message length boundary (8000 accepted, 8001 rejected with 413)
+  ---
+  duration_ms: 0.77563
+  type: 'test'
+  ...
+1..24
+# tests 37
+# suites 1
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3351.292071

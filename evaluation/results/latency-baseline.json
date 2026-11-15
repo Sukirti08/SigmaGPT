@@ -1,0 +1,1 @@
+{"label":"baseline","new_conversation_ms":{"n":50,"mean":5.9,"median":4.9,"p95":14.4,"min":3.8,"max":16.6},"follow_up_ms":{"n":50,"mean":7.4,"median":5.8,"p95":14.3,"min":3.8,"max":39.8}}

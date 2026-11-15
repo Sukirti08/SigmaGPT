@@ -1,0 +1,145 @@
+.sidebar {
+    background-color: var(--side);
+    border-right: 1px solid #1a1f28;
+    height: 100vh;
+    width: 300px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 14px;
+}
+
+.brandRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 4px 18px;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.brandName {
+    flex: 1;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.iconButton {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: #c9d0db;
+}
+
+.iconButton:hover { background-color: var(--panel); }
+
+.newChatButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 46px;
+    border: 1px solid #3a4355;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.newChatButton:hover { background-color: var(--panel); }
+
+.history {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.groupLabel {
+    color: var(--muted);
+    font-size: 13.5px;
+    font-weight: 600;
+    margin: 12px 10px 6px;
+}
+
+.historyGroup ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.historyGroup li {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #d3d9e3;
+    position: relative;
+}
+
+.historyGroup li:hover { background-color: #181d26; }
+.historyGroup li.highlighted { background-color: var(--panel); }
+
+.threadIcon { flex: none; color: #c9d0db; }
+
+.threadTitle {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.deleteBtn {
+    flex: none;
+    color: var(--muted);
+    opacity: 0;
+    display: grid;
+    place-items: center;
+    padding: 2px;
+}
+
+.historyGroup li:hover .deleteBtn,
+.historyGroup li.highlighted .deleteBtn { opacity: 1; }
+.deleteBtn:hover { color: #ff8a8a; }
+
+.emptyState {
+    color: var(--muted);
+    font-size: 13.5px;
+    margin: 6px 10px;
+}
+
+.sidebarError {
+    margin: 0 6px 10px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #ff9b9b;
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 82vw;
+        max-width: 320px;
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.45);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .deleteBtn { opacity: 1; }
+}

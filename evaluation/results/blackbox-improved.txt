@@ -1,0 +1,29 @@
+✔ B01 health endpoint reports database connected (42.08059ms)
+✔ B02 valid chat request returns a reply and persists both messages (65.328483ms)
+✔ B03 follow-up question is sent with conversation history (52.304887ms)
+✔ B04 new conversation appears in the thread list with a title (30.4192ms)
+✔ B05 empty body is rejected with 400 JSON (9.535647ms)
+✔ B06 malformed JSON is rejected with 400 JSON (4.772428ms)
+✔ B07 message over 8,000 characters is rejected with 413 JSON (9.836599ms)
+✔ B08 request body over the size limit is rejected with 413 JSON (25.187347ms)
+✔ B09 unknown conversation returns 404 JSON (5.773573ms)
+✔ B10 malformed conversation id is rejected with 400 (6.14885ms)
+✔ B11 deleting an unknown conversation returns 404 (5.112315ms)
+✔ B12 deleting an existing conversation removes it (24.860245ms)
+✔ B13 provider 500 error returns 502 JSON and saves nothing (9.088203ms)
+✔ B14 empty provider reply returns 502 (6.799487ms)
+✔ B15 provider timeout returns 504 promptly (2014.25276ms)
+✔ B16 provider rate limit returns 429 JSON (8.896197ms)
+✔ B17 unknown API route returns 404 JSON (2.100526ms)
+✔ B18 context respects a character budget for long messages (57.269658ms)
+✔ B19 X-Powered-By header is not exposed and nosniff is set (9.599453ms)
+✔ B20 CORS allows only the configured origin (8.442837ms)
+✔ B21 chat endpoint is rate limited (25.026757ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2474.951703

@@ -1,0 +1,77 @@
+{
+ "label": "baseline",
+ "results": [
+  {
+   "id": "E1",
+   "name": "Sidebar logo loads in production build",
+   "pass": false,
+   "observed": "naturalWidth=0"
+  },
+  {
+   "id": "E2",
+   "name": "Message sent and reply displayed",
+   "pass": true,
+   "observed": "reply shown"
+  },
+  {
+   "id": "E3",
+   "name": "New conversation appears in sidebar after first reply",
+   "pass": false,
+   "observed": "sidebar items=[]"
+  },
+  {
+   "id": "E4",
+   "name": "Follow-up question sent with history (messages=4)",
+   "pass": true,
+   "observed": "mock reports 4 messages"
+  },
+  {
+   "id": "E5",
+   "name": "New chat starts empty; switching back loads earlier messages",
+   "pass": true,
+   "observed": "cleared=True, earlier messages loaded=True"
+  },
+  {
+   "id": "E6",
+   "name": "Markdown rendered; raw HTML and javascript: links neutralised",
+   "pass": true,
+   "observed": "{\"img\": 0, \"code\": true, \"links\": [\"\", \"https://example.com\"], \"copy\": false, \"heading\": true, \"xss\": null}"
+  },
+  {
+   "id": "E6b",
+   "name": "Code blocks have a copy button",
+   "pass": false,
+   "observed": "copy button=False"
+  },
+  {
+   "id": "E7",
+   "name": "Provider error shown to user and prompt kept for retry",
+   "pass": true,
+   "observed": "alert='Could not generate a reply. Check your API key, network connection, and model settings.', input='__ERROR500__'"
+  },
+  {
+   "id": "E8",
+   "name": "Conversation deleted from sidebar",
+   "pass": true,
+   "observed": "items 3 -> 2"
+  },
+  {
+   "id": "E9",
+   "name": "Mobile (390 px): input uses most of the width; sidebar hidden until opened",
+   "pass": false,
+   "observed": "input width=295px, sidebar x=0 w=185"
+  },
+  {
+   "id": "E9b",
+   "name": "Mobile menu button opens the conversation list",
+   "pass": false,
+   "observed": "no menu button"
+  },
+  {
+   "id": "E10",
+   "name": "Backend offline: clear error and status",
+   "pass": false,
+   "observed": "alert='Failed to fetch', status='(no status indicator)'"
+  }
+ ]
+}
