@@ -4,7 +4,7 @@ SigmaGPT is a full-stack ChatGPT-style assistant built with React + Vite (fronte
 
 Portfolio repository maintained by [Sukirti08](https://github.com/Sukirti08).
 
-> Later revisions, listed in `PROJECT_UPGRADE_NOTES.md`, add context handling, validation, error handling, rate limiting, automated tests and an evaluation suite.
+See [project upgrade notes](PROJECT_UPGRADE_NOTES.md) for context handling, validation, error handling, rate limiting, automated tests, and evaluation details.
 
 ## Features
 
